@@ -1,18 +1,12 @@
-version: 2.1
+ version: 2.1
 
-orbs:
-  win: circleci/windows@1.0.0
-  
-jobs:
-  build:
-    executor:
-      name: win/vs2019
-      shell: bash.exe
-#     docker:
-#       - image: circleci/windows@1.0.0
-    steps:
-      - checkout            
-      - run:
-          name: install dep
-          command: |
-            dotnet build
+ orbs:
+  win: circleci/windows@2.2.0
+
+ jobs:
+   build:
+     executor: win/default     
+    
+     steps:
+       - checkout
+       - run: dotnet build
